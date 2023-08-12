@@ -1,7 +1,5 @@
 <?php
-    require_once 'DbManager.php';
-
-    $tblName = "history_book_tbl";
+    require_once(dirname(__FILE__).'/../common/DbManager.php');
 
 
     //ログイン中の判定
