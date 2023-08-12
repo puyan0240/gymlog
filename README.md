@@ -1,6 +1,12 @@
 # gymlog
 筋トレ記録用
 
+
+# 起動
+TOPで docker compose up -d を実行する
+
+
+# 準備
 TOPに .env ファイルを置き、docker^compose.yml の環境変数とする
 内容は、
   ROOT_PASS="管理者パスワード"
@@ -10,3 +16,6 @@ TOPに .env ファイルを置き、docker^compose.yml の環境変数とする
 
 php/content
   composer.json があるので、コマンド composer install を実行する
+
+
+
