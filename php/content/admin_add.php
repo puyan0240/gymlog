@@ -1,16 +1,4 @@
 <?php
-    require_once(dirname(__FILE__).'/./common/Encode.php');
-    require_once(dirname(__FILE__).'/./common/DbManager.php');
-
-    //DB検索
-    //管理者が登録されていない場合は、管理者登録画面へ
-    $tblName = "account_tbl";
-    $where = "auth=1";
-    $count = getNumberOfEntryTbl($tblName, $where, "*");
-    if ($count == 0) {
-        header('Location:admin_add.php');
-        exit();
-    }
 ?>
 
 <!DOCTYPE html>
@@ -35,30 +23,37 @@
         </nav>
     </header>
     <br>
-    
-    <form method="POST" action="login_check.php">
-        <div class="block ml-6 mr-6">
+
+    <div class="block ml-6 mr-6">
+        <form action="admin_add_confirm.php" method="POST">
             <div class="field">
-                <label class="label">ユーザー名</label>
+                <label class="label">管理者名</label>
                 <div class="control">
                     <input class="input is-sucess" type="text" name="user" required>
                 </div>
             </div>
             <div class="field">
                 <label class="label">パスワード</label>
-                    <div class="control">
+                <div class="control">
                     <input class="input is-sucess" type="password" name="passwd" required>
                 </div>
             </div>
-        </div>
-        <div class="block ml-6">
             <div class="field">
+                <label class="label">パスワード(確認用)</label>
                 <div class="control">
-                    <input class="button is-success" type="submit" value="ログイン">
+                    <input class="input is-sucess" type="password" name="passwd_confirm" required>
                 </div>
             </div>
-        </div>
-    </form>
 
+            <div class="field is-grouped">
+                <div class="control">
+                    <input class="button has-background-grey-lighter" type="reset" value="取消">
+                </div>
+                <div class="control">
+                    <input class="button is-success ml-4" type="submit" value="登録確認">
+                </div>
+            </div>
+        </form> 
+    </div>
 </body>
 </html>
