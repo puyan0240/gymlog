@@ -23,7 +23,7 @@
     <section class="hero is-info is-small">
         <div class="hero-body">
             <a href="index.php">
-                <h1 class="title ml-6">読書履歴</h1>
+                <h1 class="title ml-6">ジム履歴</h1>
             </a>
         </div>
     </section>
@@ -36,8 +36,7 @@
                 <a class="navbar-item has-text-link" href="branch.php?bt_type=bt_search">
                     <span>検索</span>
                 </a>
-                <?php echo $strAdmin; ?>
-                <?php echo $strManager; ?>
+                <?php echo $strAuth; ?>
             </div>
         </div>
     </nav>

@@ -19,14 +19,10 @@
                     <a class=\"navbar-item has-text-link\" href=\"branch.php?bt_type=%s\">
                         <span>%s</span>
                     </a>";
-        $strAdmin = "";
-        $strManager = "";
-        if ($_SESSION['admin'] == 1) {
-            $strAdmin = $strAdmin.sprintf($format, "bt_data", "データ管理");
-        }
-        if ($_SESSION['manager'] == 1) {
+        $strAuth = "";
+        if ($_SESSION['auth'] == 1) {
             #$strManager = '<input type="submit" name="bt_account" value="アカウント管理">';
-            $strManager = $strManager.sprintf($format, "bt_account", "アカウント管理");
+            $strManager = $strAuth.sprintf($format, "bt_account", "アカウント管理");
         }
     }
 

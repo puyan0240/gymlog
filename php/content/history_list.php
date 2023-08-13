@@ -1,12 +1,63 @@
 <?php
     // Header部分共通
-    include_once("./header/header.php");
+    require_once(dirname(__FILE__).'/./header/header.php');
+
+    //「年」選択肢
+    {
+        $latestYear = 2023; //一番古い年
+
+        if (isset($_POST['sel_year']))
+            $selectedYear = $_POST['sel_year'];
+        else
+            $selectedYear = date('Y');
+
+        $format = "<option value=\"%s\" %s>%s</option>";
+        $strSelYear = "";
+        $strSelected = "";
+    
+        $year = date('Y');
+        while ($year >= $latestYear) {
+            if ($year == $selectedYear)
+                $strSelected = "selected";  //初期値の選択は現在の年
+            else
+                $strSelected = "";
+
+            $strSelYear = $strSelYear.sprintf($format, $year, $strSelected, $year);
+            $year --;
+        }    
+    }
+
+
+    //一覧表示
+    {
+        $format = "
+            <tr>
+                <td hidden>%d</td>
+                <td>%s</td>
+                <td>%s</td>
+            </tr>";
+        $strTbl = "";
+
+        //DB TABLEから読み出し
+        $where = "date like '%".$selectedYear."%'";
+        $ret = readTbl($tblName, $where, 'ORDER BY date');
+        if ($ret != FALSE) {
+            //HTML作成
+            $count = 1;
+            foreach ($ret as $value) {
+                $strTbl .= sprintf($format, (int)$value['idx'], $count, $value['date'], $value['title'], $value['author'], 
+                                             $value['publisher'], $value['recommend'],
+                                              (int)$value['idx'], (int)$value['idx']);
+                $count += 1;
+            }
+        }
+    }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
-<?php include('./common/head_html.php'); ?>
+<?php require_once(dirname(__FILE__).'/./header/head_html.php'); ?>
 <body>
     <?php echo $strHeader; ?>
     <br>
@@ -35,12 +86,8 @@
         <table class="table", id="list_table">
             <tr>
                 <th hidden></th>
-                <th>No.</th>
                 <th>日付</th>
-                <th>タイトル</th>
-                <th>著者</th>
-                <th>出版社</th>
-                <th>評価</th>
+                <th>結果</th>
             </tr>
             <?php echo $strTbl; ?>
 
@@ -61,6 +108,6 @@
         }
     </script>
 
-    <?php include('./common/bulma_burger.js'); ?>
+    <?php require_once(dirname(__FILE__).'/./header/bulma_burger.js'); ?>
 </body>
 </html>
