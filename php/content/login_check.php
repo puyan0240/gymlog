@@ -19,8 +19,7 @@
                 session_start();
                 $_SESSION['login'] = 1;
                 $_SESSION['user']  = $user;
-                $_SESSION['admin']   = $value['admin'];
-                $_SESSION['manager'] = $value['manager'];            
+                $_SESSION['auth']   = $value['auth'];
             }
             break;
         }
@@ -62,8 +61,14 @@
     </div>
     <br>
     <div class="block ml-6">
-        <a href="login.php">ログイン画面に戻る</a>
+        <a href="login.php">ログイン画面へ</a>
     </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "login.php";
+        }, 2*1000);
+    </script>
 
     <?php include('./header/bulma_burger.js'); ?>
 </body>
