@@ -40,6 +40,7 @@
 
         //DB TABLEから読み出し
         $where = "date like '%".$selectedYear."%'";
+        $tblName = "gymlog_tbl";
         $ret = readTbl($tblName, $where, 'ORDER BY date');
         if ($ret != FALSE) {
             //HTML作成
@@ -63,7 +64,7 @@
     <br>
 
     <div class="block ml-6">
-        <a href="add.php">
+        <a href="history_add.php">
             <span class="button is-success">新規登録</span>
         </a>
     </div>
