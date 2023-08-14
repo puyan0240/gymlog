@@ -36,6 +36,7 @@
                 <a class="navbar-item has-text-link" href="branch.php?bt_type=bt_search">
                     <span>検索</span>
                 </a>
+                <?php echo $strItem; ?>
                 <?php echo $strAuth; ?>
             </div>
         </div>

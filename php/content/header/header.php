@@ -15,13 +15,15 @@
 
     //権限によって表示を切り替える
     {
+        $strItem = "";
+        $strAuth = "";
+
         $format = "
                     <a class=\"navbar-item has-text-link\" href=\"branch.php?bt_type=%s\">
                         <span>%s</span>
                     </a>";
-        $strAuth = "";
         if ($_SESSION['auth'] == 1) {
-            #$strManager = '<input type="submit" name="bt_account" value="アカウント管理">';
+            $strItem = $strItem.sprintf($format, "bt_item", "マシン管理");
             $strAuth = $strAuth.sprintf($format, "bt_account", "アカウント管理");
         }
     }
