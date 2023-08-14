@@ -68,7 +68,7 @@
         }
 
         function clicked(e) {
-            location = "account_disp.php?idx="+e.target.id;
+            location = "account_detail.php?idx="+e.target.id;
         }
     </script>
 
