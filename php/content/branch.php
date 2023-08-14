@@ -15,6 +15,32 @@ if (isset($_GET['menu'])) {
     exit();
 }
 
+//マシン管理分岐
+if (isset($_GET['item_edit_type'])) {
+    $edit_type = $_GET['item_edit_type'];
+
+    if ($edit_type == "edit")
+        header('Location:item_edit.php?idx='.$_GET['idx']);
+    else if ($edit_type == "clr")
+        header('Location:item_del_confirm.php?idx='.$_GET['idx']);
+    exit();
+}
+
+//アカウント管理分岐
+if (isset($_GET['account_edit_type'])) {
+    $type = $_GET['account_edit_type'];
+
+    if ($type == "edit")
+        header('Location:account_edit.php?idx='.$_GET['idx']);
+    else if ($type == "clr")
+        header('Location:account_del_confirm.php?idx='.$_GET['idx']);
+    else if ($type == "passwd_clr")
+        header('Location:account_passwd_clr_confirm.php?idx='.$_GET['idx']);
+
+    exit();
+}
+
+
 if (isset($_GET['edit_type'])) {
     $edit_type = $_GET['edit_type'];
 
@@ -31,18 +57,7 @@ if (isset($_POST['bt_add_account'])) {
     header('Location:account_add.php');
     exit();
 }
-if (isset($_GET['account_edit_type'])) {
-    $edit_type = $_GET['account_edit_type'];
 
-    if ($edit_type == "edit")
-        header('Location:account_edit.php?idx='.$_GET['idx']);
-    else if ($edit_type == "clr")
-        header('Location:account_del_confirm.php?idx='.$_GET['idx']);
-    else if ($edit_type == "passwd_clr")
-        header('Location:account_passwd_clr_confirm.php?idx='.$_GET['idx']);
-
-    exit();
-}
 
 
 ?>

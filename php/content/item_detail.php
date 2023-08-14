@@ -3,27 +3,20 @@
     require_once(dirname(__FILE__).'/./header/header.php');
 
    
-    $user = $passwd = $admin = $manager = "";
+    $name = $note = "";
     $idx = $_GET['idx'];
 
     //DB TABLEから読み出し
-    $tblName = "account_tbl";
+    $tblName = "item_tbl";
     $param = 'idx ='.$idx;
     $ret = readTbl($tblName, $param, NULL);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
             $idx  = $value['idx'];
-            $user = $value['user'];
-            $auth = $value['auth'];
+            $name = $value['name'];
+            $note = $value['note'];
         }
     }
-
-    //アカウント権限の表示
-    if ($auth == 0)
-        $auth = "一般";
-    else
-        $auth = "管理者";
-
 
     //戻り先
     $strBack = $_SERVER['HTTP_REFERER'];
@@ -38,25 +31,22 @@
     <div class="block ml-6">
         <table class="table" >
             <tr>
-                <td>ユーザー名</td>
-                <td><?php echo $user; ?></td>
+                <td>マシン名:</td>
+                <td><?php echo $name; ?></td>
             </tr>
             <tr>
-                <td>権限:</td>
-                <td><?php echo $auth;?></td>
+                <td>説明:</td>
+                <td><?php echo $note;?></td>
             </tr>
         </table>
     </div>
 
     <div class="block ml-6">
-        <a href="branch.php?account_edit_type=edit&idx=<?php echo $idx;?>">
+        <a href="branch.php?item_edit_type=edit&idx=<?php echo $idx;?>">
             <span class="button has-background-grey-lighter">編集</span>
         </a>
-        <a href="branch.php?account_edit_type=passwd_clr&idx=<?php echo $idx;?>">
-            <span class="button has-text-light has-background-danger ml-5">パスワード初期化</span>
-        </a> 
-        <a href="branch.php?account_edit_type=clr&idx=<?php echo $idx;?>">
-            <span class="button has-text-light has-background-danger ml-5">アカウント削除</span>
+        <a href="branch.php?item_edit_type=clr&idx=<?php echo $idx;?>">
+            <span class="button has-text-light has-background-danger ml-5">削除</span>
         </a> 
     </div>
 
