@@ -30,10 +30,10 @@
     <nav class="navbar has-background-info-light">
         <div class="navbar-menu ml-6" id="targetMenu">
             <div class="navbar-start">
-                <a class="navbar-item has-text-link" href="branch.php?bt_type=bt_list">
+                <a class="navbar-item has-text-link" href="branch.php?menu=history_list">
                     <span>一覧表示</span>
                 </a>
-                <a class="navbar-item has-text-link" href="branch.php?bt_type=bt_search">
+                <a class="navbar-item has-text-link" href="branch.php?menu=search">
                     <span>検索</span>
                 </a>
                 <?php echo $strItem; ?>

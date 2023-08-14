@@ -19,12 +19,12 @@
         $strAuth = "";
 
         $format = "
-                    <a class=\"navbar-item has-text-link\" href=\"branch.php?bt_type=%s\">
+                    <a class=\"navbar-item has-text-link\" href=\"branch.php?menu=%s\">
                         <span>%s</span>
                     </a>";
         if ($_SESSION['auth'] == 1) {
-            $strItem = $strItem.sprintf($format, "bt_item", "マシン管理");
-            $strAuth = $strAuth.sprintf($format, "bt_account", "アカウント管理");
+            $strItem = $strItem.sprintf($format, "item_list", "マシン管理");
+            $strAuth = $strAuth.sprintf($format, "account_list", "アカウント管理");
         }
     }
 
