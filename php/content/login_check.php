@@ -19,7 +19,7 @@
                 session_start();
                 $_SESSION['login'] = 1;
                 $_SESSION['user']  = $user;
-                $_SESSION['auth']   = $value['auth'];
+                $_SESSION['auth']  = $value['auth'];
             }
             break;
         }

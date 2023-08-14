@@ -22,7 +22,7 @@
         $strAuth = "";
         if ($_SESSION['auth'] == 1) {
             #$strManager = '<input type="submit" name="bt_account" value="アカウント管理">';
-            $strManager = $strAuth.sprintf($format, "bt_account", "アカウント管理");
+            $strAuth = $strAuth.sprintf($format, "bt_account", "アカウント管理");
         }
     }
 
