@@ -29,10 +29,10 @@
 
     //登録
     if ($errFlag == FALSE) {
-        $tblName = "account_tbl";
-        $keyValue = [];
+
         //DB TABLEの要素名リスト
         $keyName = ['user','passwd','auth'];
+        $keyValue = [];
     
         //DB TABLEの 要素名:値 になるよう連想配列を作成
         foreach ($keyName as $key) {
@@ -46,6 +46,7 @@
         }
         
         //DB TABLEへ書き込み
+        $tblName = "account_tbl";
         if (writeTbl($tblName, $keyValue) == TRUE) {
             $result = "登録しました。";
         } else {
