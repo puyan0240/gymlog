@@ -15,7 +15,7 @@
 
 <!DOCTYPE html>
 <html lang="ja">
-<?php include('./header/head_html.php'); ?>
+<?php include(dirname(__FILE__).'/./header/head_html.php'); ?>
 <body>
     <header>
         <nav class="navbar">
