@@ -33,8 +33,8 @@
 <body>
     <?php echo $strHeader; ?>
     <br>
-    <div class="block">
-        <table class="table ml-4">
+    <div class="block ml-6">
+        <table class="table">
             <tr>
                 <td>ユーザー名</td>
                 <td><?php echo $user; ?></td>
@@ -46,20 +46,21 @@
         </table>
     </div>
 
+    <div class="block ml-6">
+        <form action="account_add_done.php" method="POST">
+            <input type="hidden" name="user" value="<?php echo $user; ?>">
+            <input type="hidden" name="auth" value="<?php echo $auth;?>">
 
-    <form action="account_add_done.php" method="POST">
-        <input type="hidden" name="user" value="<?php echo $user; ?>">
-        <input type="hidden" name="auth" value="<?php echo $auth;?>">
-
-        <div class="field is-grouped">
-            <div class="control">
-                <input class="button has-background-grey-lighter ml-4" type="button" onclick="history.back()" value="戻る">
+            <div class="field is-grouped">
+                <div class="control">
+                    <input class="button has-background-grey-lighter" type="button" onclick="history.back()" value="戻る">
+                </div>
+                <div class="control">
+                    <input class="button is-success ml-4" type="submit" value="登録">
+                </div>
             </div>
-            <div class="control">
-                <input class="button is-success ml-4" type="submit" value="登録">
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 
     <?php include(dirname(__FILE__).'/./header/bulma_burger.js'); ?>
 </body>
