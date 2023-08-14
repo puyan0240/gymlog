@@ -5,6 +5,18 @@
 
     $idx = $_GET['idx'];
 
+    //DB TABLEから読み出し
+    $tblName = "item_tbl";
+    $param = 'idx ='.$idx;
+    $ret = readTbl($tblName, $param, NULL);
+    if ($ret != FALSE) {
+        foreach ($ret as $value) {
+            $idx  = $value['idx'];
+            $name = $value['name'];
+            $note = $value['note'];
+        }
+    }
+
     //戻り先
     $strBack = $_SERVER['HTTP_REFERER'];
 ?>
@@ -18,6 +30,7 @@
     <div class="block ml-6">
         <p>削除しますか？</p>
     </div>
+
     <div class="block ml-6 mr-6">
         <form action="item_del_done.php" method="post">
             <input type="hidden" name="idx" value="<?php echo $idx;?>">
@@ -28,7 +41,6 @@
                     <input class="input is-sucess" type="text" name="key_word">
                 </div>
             </div>
-            <br>
             <div class="field is-grouped">
                 <a href="<?php echo $strBack; ?>">
                     <span class="button has-background-grey-lighter">戻る</span>
@@ -38,6 +50,20 @@
                 </div>
             </div>            
         </form>
+    </div>
+
+    <br>
+    <div class="block ml-6">
+        <table class="table">
+            <tr>
+                <td>マシン名</td>
+                <td><?php echo $name; ?></td>
+            </tr>
+            <tr>
+                <td>説明</td>
+                <td><?php echo $note; ?></td>
+            </tr>
+        </table>
     </div>
 
     <?php include(dirname(__FILE__).'/./header/bulma_burger.js'); ?>
