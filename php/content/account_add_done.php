@@ -65,6 +65,14 @@
     <div class="block ml-6">
         <p><?php echo $result; ?></p>
     </div>
+    <div class="block ml-6">
+        <a href="account_list.php">アカウント管理へ</a>
+    </div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "account_list.php";
+        }, 2*1000);
+    </script>
 
     <?php include(dirname(__FILE__).'/./header/bulma_burger.js'); ?>
 </body>
