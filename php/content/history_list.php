@@ -32,28 +32,27 @@
     {
         $format = "
             <tr>
-                <td hidden>%d</td>
                 <td>%s</td>
-                <td>%s</td>
+                <td>(%s)</td>
             </tr>";
+        $week = array('日','月','火','水','木','金','土');
         $strTbl = "";
+        $last_date = "";
 
         //DB TABLEから読み出し
         $where = "date like '%".$selectedYear."%'";
-        $tblName = "gymlog_tbl";
-        $ret = readTbl($tblName, $where, 'ORDER BY date');
+        $tblName = "history_tbl";
+        $ret = readTbl($tblName, $where, 'ORDER BY date DESC');
         if ($ret != FALSE) {
             //HTML作成
-            $count = 1;
             foreach ($ret as $value) {
-                $strTbl .= sprintf($format, (int)$value['idx'], $count, $value['date'], $value['title'], $value['author'], 
-                                             $value['publisher'], $value['recommend'],
-                                              (int)$value['idx'], (int)$value['idx']);
-                $count += 1;
+                if ($last_date != $value['date']) {
+                    $strTbl .= sprintf($format, $value['date'], $week[date('w', strtotime($value['date']))]);
+                    $last_date = $value['date'];
+                }
             }
         }
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -85,11 +84,6 @@
 
     <div class="block ml-6 mr-6">
         <table class="table", id="list_table">
-            <tr>
-                <th hidden></th>
-                <th>日付</th>
-                <th>結果</th>
-            </tr>
             <?php echo $strTbl; ?>
 
         </table>
@@ -105,7 +99,7 @@
         }
 
         function clicked(e) {
-            location = "branch.php?edit_type=disp&idx="+e.target.id;
+            location = "branch.php?history_edit_type=detail&idx="+e.target.id;
         }
     </script>
 

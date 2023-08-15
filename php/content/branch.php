@@ -15,6 +15,19 @@ if (isset($_GET['menu'])) {
     exit();
 }
 
+//一覧表示分岐
+if (isset($_GET['history_edit_type'])) {
+    $type = $_GET['history_edit_type'];
+
+    if ($type == 'detail')
+        header('Location:history_detail.php?idx='.$_GET['idx']);
+    elseif ($type == "edit")
+        header('Location:history_edit.php?idx='.$_GET['idx']);
+    else if ($type == "clr")
+        header('Location:history_del_confirm.php?idx='.$_GET['idx']);
+    exit();
+}
+
 //マシン管理分岐
 if (isset($_GET['item_edit_type'])) {
     $edit_type = $_GET['item_edit_type'];
