@@ -56,7 +56,7 @@
                 <div class="column is-narrow">
                     <input class="input is-sucess" type="text" name="weight_1" required value="">
                 </div>
-                <div class="column is-narrow">KG</div>
+                <div class="column is-narrow">kg</div>
                 <div class="column is-narrow">
                     <input class="input is-sucess" type="text" name="count_1" required value="">
                 </div>
@@ -70,7 +70,7 @@
                 <div class="column is-narrow">
                     <input class="input is-sucess" type="text" name="weight_2" value="">
                 </div>
-                <div class="column is-narrow">KG</div>
+                <div class="column is-narrow">kg</div>
                 <div class="column is-narrow">
                     <input class="input is-sucess" type="text" name="count_2" value="">
                 </div>
@@ -84,7 +84,7 @@
                 <div class="column is-narrow">
                     <input class="input is-sucess" type="text" name="weight_3" value="">
                 </div>
-                <div class="column is-narrow">KG</div>
+                <div class="column is-narrow">kg</div>
                 <div class="column is-narrow">
                     <input class="input is-sucess" type="text" name="count_3" value="">
                 </div>
