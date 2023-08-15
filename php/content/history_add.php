@@ -11,7 +11,7 @@
 
         //DBから読み出し
         $tblName = "item_tbl";
-        $ret = readTbl($tblName, NULL, NULL);
+        $ret = readTbl($tblName, NULL, NULL, NULL, NULL);
         if ($ret != FALSE) {
             foreach ($ret as $value) {
                 $idx  = $value['idx'];

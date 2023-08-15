@@ -36,7 +36,7 @@ function getDb() : PDO {
 #-----------------------------------------------------------
 # TBLから取得 (SELECT)
 #-----------------------------------------------------------
-function readTbl($tblName, $where, $order) {
+function readTbl($tblName, $where, $order, $joinTblName, $on) {
 
     $result = FALSE;
     $outValue = [];
@@ -47,11 +47,16 @@ function readTbl($tblName, $where, $order) {
 
         //TBLから取得
         try {
-            $format = 'SELECT * FROM %s WHERE %s %s';
-
             if ($where == NULL)
                 $where = '1';
-            $strSql = sprintf($format, $tblName, $where, $order);
+
+            if ($joinTblName == NULL) {
+                $format = 'SELECT * FROM %s WHERE %s %s';
+                $strSql = sprintf($format, $tblName, $where, $order);
+            } else {
+                $format = 'SELECT * FROM %s JOIN %s ON %s WHERE %s %s';
+                $strSql = sprintf($format, $tblName, $joinTblName , $on, $where, $order);
+            }            
             //echo $strSql;
             
             $stmt = $db->prepare($strSql);

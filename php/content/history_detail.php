@@ -3,24 +3,32 @@
     require_once(dirname(__FILE__).'/./header/header.php');
 
    
-    $name = $note = "";
+    $strTbl = "";
     $date = $_GET['date'];
+
+    $format = 
+        "<tr>
+            <td>%s</td>
+            <td>%s kg</td>
+            <td>%s 回</td>
+            <td>%s kg</td>
+            <td>%s 回</td>
+            <td>%s kg</td>
+            <td>%s 回</td>
+        </tr>";
 
     //DB TABLEから読み出し
     $tblName = "history_tbl";
     $param = 'date ="'.$date.'"';
-    $ret = readTbl($tblName, $param, NULL);
-    var_dump($ret);
+    $tblNameJoin = "item_tbl";
+    $on = "history_tbl.item_idx = item_tbl.idx";
+    $ret = readTbl($tblName, $param, NULL, $tblNameJoin, $on);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
-            var_dump($value);
-            //DB
-            $tblName = "item_tbl";
-            $param = 'idx ='.$value['item_idx'];
-            $ret_item_tbl = readTbl($tblName, $param, NULL);
-            if ($ret_item_tbl != FALSE)
-                foreach ()
-
+            $strTbl .= sprintf($format, $value['name'], 
+                                        $value['weight_1'], $value['count_1'],
+                                        $value['weight_2'], $value['count_2'], 
+                                        $value['weight_3'], $value['count_3'],);
         }
     }
 
@@ -38,22 +46,16 @@
         <table class="table" >
             <tr>
                 <td>日付</td>
-                <td><?php echo $date; ?></td>
+                <td colspan="7"><?php echo $date; ?></td>
             </tr>
-            <tr>
-                <td>説明:</td>
-                <td><?php echo $note;?></td>
-            </tr>
+            <?php echo $strTbl; ?>
         </table>
     </div>
 
     <div class="block ml-6">
-        <a href="branch.php?item_edit_type=edit&idx=<?php echo $idx;?>">
-            <span class="button has-background-grey-lighter">編集</span>
-        </a>
-        <a href="branch.php?item_edit_type=clr&idx=<?php echo $idx;?>">
-            <span class="button has-text-light has-background-danger ml-5">削除</span>
-        </a> 
+        <div class="control">
+            <input class="button has-background-grey-lighter" type="button" onclick="history.back()" value="戻る">
+        </div>
     </div>
 
     <?php include(dirname(__FILE__).'/./header/bulma_burger.js'); ?>

@@ -14,7 +14,7 @@
         //DB検索
         $tblName = "item_tbl";
         $where   = "name='".$name."'";
-        $ret = readTbl($tblName, $where, NULL);
+        $ret = readTbl($tblName, $where, NULL, NULL, NULL);
         if ($ret != FALSE) {
             $errFlag = TRUE;
             $result = "マシン名:".$name." は、既に登録されています。";

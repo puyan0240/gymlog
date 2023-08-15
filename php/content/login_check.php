@@ -10,7 +10,7 @@
 
     //DB検索
     $where = "user='".$user."'";
-    $ret = readTbl($tblName, $where, NULL);
+    $ret = readTbl($tblName, $where, NULL, NULL, NULL);
     if ($ret != FALSE) {
 
         //ユーザー認証&記録

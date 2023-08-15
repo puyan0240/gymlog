@@ -9,7 +9,7 @@
 
         //DB TABLEから読み出し
         $tblName = "item_tbl";
-        $ret = readTbl($tblName, NULL, NULL);
+        $ret = readTbl($tblName, NULL, NULL, NULL, NULL);
         if ($ret != FALSE) {
 
             $format = "

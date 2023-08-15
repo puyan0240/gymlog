@@ -42,7 +42,7 @@
         //DB TABLEから読み出し
         $where = "date like '%".$selectedYear."%'";
         $tblName = "history_tbl";
-        $ret = readTbl($tblName, $where, 'ORDER BY date DESC');
+        $ret = readTbl($tblName, $where, 'ORDER BY date DESC', NULL, NULL);
         if ($ret != FALSE) {
             //HTML作成
             foreach ($ret as $value) {

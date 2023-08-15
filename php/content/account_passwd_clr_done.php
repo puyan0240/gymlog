@@ -10,7 +10,7 @@
     //DB検索:ユーザー名を取得する
     $tblName = "account_tbl";
     $where = "idx='".$_POST['idx']."'";
-    $ret = readTbl($tblName, $where, NULL);
+    $ret = readTbl($tblName, $where, NULL, NULL, NULL);
     if ($ret != FALSE) {
         //ユーザー認証&記録
         foreach ($ret as $value) {

@@ -14,7 +14,7 @@
         //DB検索
         $tblName = "account_tbl";
         $where   = "user='".$user."'";
-        $ret = readTbl($tblName, $where, NULL);
+        $ret = readTbl($tblName, $where, NULL, NULL, NULL);
         if ($ret != FALSE) {
             $errFlag = TRUE;
             $result = "ユーザー名:".$user." は、既に登録されています。";

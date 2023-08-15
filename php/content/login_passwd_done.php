@@ -25,7 +25,7 @@
     //DB検索:登録しているアカウントか?
     $tblName = "account_tbl";
     $where = "user='".$_SESSION['user']."'";
-    $ret = readTbl($tblName, $where, NULL);
+    $ret = readTbl($tblName, $where, NULL, NULL, NULL);
     if ($ret != FALSE) {
         //ユーザー認証&記録
         foreach ($ret as $value) {

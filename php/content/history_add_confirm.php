@@ -30,7 +30,7 @@
     //DB TABLEから読み出し
     $tblName = "item_tbl";
     $param = 'idx ='.$item_idx;
-    $ret = readTbl($tblName, $param, NULL);
+    $ret = readTbl($tblName, $param, NULL, NULL, NULL);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
             $name = $value['name'];
