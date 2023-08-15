@@ -78,7 +78,15 @@
 
     <div class="block ml-6">
         <form action="history_add_done.php" method="POST">
-            <input type="hidden" name="name" value="<?php echo $item_idx; ?>">
+            <input type="hidden" name="date" value="<?php echo $date; ?>">
+            <input type="hidden" name="account_idx" value="<?php echo $_SESSION['idx']; ?>">
+            <input type="hidden" name="item_idx" value="<?php echo $item_idx; ?>">
+            <input type="hidden" name="weight_1" value="<?php echo $weight_1; ?>">
+            <input type="hidden" name="count_1" value="<?php echo $count_1; ?>">
+            <input type="hidden" name="weight_2" value="<?php echo $weight_2; ?>">
+            <input type="hidden" name="count_2" value="<?php echo $count_2; ?>">
+            <input type="hidden" name="weight_3" value="<?php echo $weight_3; ?>">
+            <input type="hidden" name="count_3" value="<?php echo $count_3; ?>">
 
             <div class="field is-grouped">
                 <div class="control">
