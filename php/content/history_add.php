@@ -29,11 +29,11 @@
     <?php echo $strHeader; ?>
     <br>
     <div class="block ml-6 mr-6">
-        <form action="item_add_confirm.php" method="POST">
+        <form action="history_add_confirm.php" method="POST">
             <div class="field">
                 <label class="label">日付</label>
                 <div class="control">
-                    <input class="input is-sucess" type="text" name="name" required value="<?php echo date('Y-m-d'); ?>">
+                    <input class="input is-sucess" type="text" name="date" required value="<?php echo date('Y-m-d'); ?>">
                 </div>
             </div>
 
