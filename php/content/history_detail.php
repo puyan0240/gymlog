@@ -4,7 +4,7 @@
 
     $date     = $_GET['date'];
     $item_idx = $_GET['item_idx'];
-    $name = $weight_1 = $count_1 = $weight_2 = $count_2 = $weight_3 = $count_3 = "";
+    $idx = $name = $weight_1 = $count_1 = $weight_2 = $count_2 = $weight_3 = $count_3 = "";
 
     //DB TABLEから読み出し
     $tblName = "history_tbl";
@@ -14,6 +14,8 @@
     $ret = readTbl($tblName, $param, NULL, $tblNameJoin, $on);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
+            var_dump($value);
+            $idx      = $value['idx'];
             $name     = $value['name'];
             $weight_1 = $value['weight_1'];
             $count_1  = $value['count_1'];
@@ -64,10 +66,10 @@
     </div>
 
     <div class="block ml-6">
-        <a href="branch.php?item_edit_type=edit&idx=<?php echo $idx;?>">
+        <a href="branch.php?history_edit_type=edit&idx=<?php echo $idx;?>">
             <span class="button has-background-grey-lighter">編集</span>
         </a>
-        <a href="branch.php?item_edit_type=clr&idx=<?php echo $idx;?>">
+        <a href="branch.php?history_edit_type=clr&idx=<?php echo $idx;?>">
             <span class="button has-text-light has-background-danger ml-5">削除</span>
         </a> 
     </div>
