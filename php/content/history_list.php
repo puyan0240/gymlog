@@ -99,7 +99,7 @@
         }
 
         function clicked(e) {
-            location = "branch.php?history_edit_type=detail&idx="+e.target.id;
+            location = "branch.php?history_edit_type=detail&date="+e.target.id;
         }
     </script>
 
