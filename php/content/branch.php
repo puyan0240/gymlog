@@ -22,7 +22,7 @@ if (isset($_GET['history_edit_type'])) {
     if ($type == 'result')
         header('Location:history_result.php?date='.$_GET['date']);
     elseif ($type == 'detail')
-        header('Location:history_detail.php?date='.$_GET['date']);
+        header('Location:history_detail.php?date='.$_GET['date'].'&item_idx='.$_GET['item_idx']);
     elseif ($type == "edit")
         header('Location:history_edit.php?idx='.$_GET['idx']);
     else if ($type == "clr")

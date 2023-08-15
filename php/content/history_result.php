@@ -8,7 +8,7 @@
     //日付
     {
         $week = array('日','月','火','水','木','金','土');
-        $strDate = $date." (".$week[date('w', strtotime($date))].")";
+        //$strDate = $date." (".$week[date('w', strtotime($date))].")";
     }
 
 
@@ -54,7 +54,7 @@
     <?php echo $strHeader; ?>
     <br>
     <div class="block ml-6">
-        <label class="label"><?php echo $strDate; ?></label>
+        <p id="date"><?php echo $date; ?></p>
     </div>
     <div class="block ml-6">
         <table class="table" id="list_table">
@@ -78,7 +78,8 @@
         }
 
         function clicked(e) {
-            location = "branch.php?history_edit_type=detail2&item_idx="+e.target.id;
+            let date = document.getElementById("date").textContent;
+            location = "branch.php?history_edit_type=detail&item_idx="+e.target.id+"&date="+date;
         }
     </script>
 
