@@ -50,10 +50,8 @@ function readTbl($tblName, $where, $order) {
             $format = 'SELECT * FROM %s WHERE %s %s';
 
             if ($where == NULL)
-                $strSql = sprintf($format, $tblName, "1", $order);
-            else
-                $strSql = sprintf($format, $tblName, $where, $order);
-            
+                $where = '1';
+            $strSql = sprintf($format, $tblName, $where, $order);
             //echo $strSql;
             
             $stmt = $db->prepare($strSql);
