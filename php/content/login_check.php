@@ -18,6 +18,7 @@
             if (password_verify($passwd, $value['passwd'])) { //パスワードは暗号化しているので
                 session_start();
                 $_SESSION['login'] = 1;
+                $_SESSION['idx']   = $value['idx'];
                 $_SESSION['user']  = $user;
                 $_SESSION['auth']  = $value['auth'];
             }
