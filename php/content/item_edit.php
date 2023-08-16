@@ -14,6 +14,7 @@
         foreach ($ret as $value) {
             $name = $value['name'];
             $note = $value['note'];
+            break;
         }
     }
 
