@@ -14,9 +14,9 @@
         $ret = readTbl($tblName, NULL, NULL, NULL, NULL);
         if ($ret != FALSE) {
             foreach ($ret as $value) {
-                $idx  = $value['idx'];
-                $name = $value['name'];
-                $strSelectItem .= sprintf($format, $idx, $name);
+                $item_idx = $value['item_idx'];
+                $name     = $value['name'];
+                $strSelectItem .= sprintf($format, $item_idx, $name);
             }
         }
     }

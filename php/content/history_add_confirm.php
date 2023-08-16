@@ -29,7 +29,7 @@
 
     //DB TABLEから読み出し
     $tblName = "item_tbl";
-    $param = 'idx ='.$item_idx;
+    $param = 'item_idx ='.$item_idx;
     $ret = readTbl($tblName, $param, NULL, NULL, NULL);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
@@ -79,7 +79,7 @@
     <div class="block ml-6">
         <form action="history_add_done.php" method="POST">
             <input type="hidden" name="date" value="<?php echo $date; ?>">
-            <input type="hidden" name="account_idx" value="<?php echo $_SESSION['idx']; ?>">
+            <input type="hidden" name="account_idx" value="<?php echo $_SESSION['account_idx']; ?>">
             <input type="hidden" name="item_idx" value="<?php echo $item_idx; ?>">
             <input type="hidden" name="weight_1" value="<?php echo $weight_1; ?>">
             <input type="hidden" name="count_1" value="<?php echo $count_1; ?>">

@@ -32,7 +32,7 @@
             }
         }
         
-        var_dump($keyValue);
+        //var_dump($keyValue);
 
         //DB TABLEへ書き込み
         $tblName = "history_tbl";
