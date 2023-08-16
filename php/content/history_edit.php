@@ -2,7 +2,7 @@
     // Header部分共通
     require_once(dirname(__FILE__).'/./header/header.php');
 
-    
+
     $history_idx = $_GET['history_idx'];
 
     //DB TABLEから読み出し
@@ -17,7 +17,9 @@
         $ret = readTbl($tblName, $param, NULL, $tblNameJoin, $on);
         if ($ret != FALSE) {
             foreach ($ret as $value) {
+                //var_dump($value);
                 $history_idx = $value['history_idx'];
+                $item_idx    = $value['item_idx'];
                 $date        = $value['date'];
                 $name        = $value['name'];
                 $weight_1    = $value['weight_1'];
@@ -33,8 +35,9 @@
 
     //マシン選択
     {
+        $selected = "";
         $format = "
-            <option value=\"%d\">%s</option>";
+            <option value=\"%d\" %s>%s</option>";
         $strSelectItem = "";
 
 
@@ -43,9 +46,13 @@
         $ret = readTbl($tblName, NULL, NULL, NULL, NULL);
         if ($ret != FALSE) {
             foreach ($ret as $value) {
-                $item_idx = $value['item_idx'];
+                $tmp_idx = $value['item_idx'];
                 $name     = $value['name'];
-                $strSelectItem .= sprintf($format, $item_idx, $name);
+                if ($tmp_idx == $item_idx)
+                    $selected = "selected";
+                else
+                    $selected = "";
+                $strSelectItem .= sprintf($format, $tmp_idx, $selected, $name);
             }
         }
     }
