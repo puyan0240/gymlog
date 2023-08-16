@@ -7,6 +7,8 @@
 
     //DB TABLEから読み出し
     {
+        $weight_1 = $weight_2 = $weight_3 = "";
+        $count_1 = $count_2 = $count_3 = "";
         $tblName = "history_tbl";
         $param = 'idx ='.$idx;
         //$tblNameJoin = "item_tbl";
@@ -81,11 +83,11 @@
                     <label class="label">1回目</label>
                 </div>
                 <div class="column is-narrow">
-                    <input class="input is-sucess" type="text" name="weight_1" required value="">
+                    <input class="input is-sucess" type="text" name="weight_1" required value="<?php echo $weight_1;?>">
                 </div>
                 <div class="column is-narrow">kg</div>
                 <div class="column is-narrow">
-                    <input class="input is-sucess" type="text" name="count_1" required value="">
+                    <input class="input is-sucess" type="text" name="count_1" required value="<?php echo $count_1;?>">
                 </div>
                 <div class="column is-narrow">回</div>
             </div>
@@ -95,11 +97,11 @@
                     <label class="label">2回目</label>
                 </div>
                 <div class="column is-narrow">
-                    <input class="input is-sucess" type="text" name="weight_2" value="">
+                    <input class="input is-sucess" type="text" name="weight_2" value="<?php echo $weight_2;?>">
                 </div>
                 <div class="column is-narrow">kg</div>
                 <div class="column is-narrow">
-                    <input class="input is-sucess" type="text" name="count_2" value="">
+                    <input class="input is-sucess" type="text" name="count_2" value="<?php echo $count_2;?>">
                 </div>
                 <div class="column is-narrow">回</div>
             </div>
@@ -109,11 +111,11 @@
                     <label class="label">3回目</label>
                 </div>
                 <div class="column is-narrow">
-                    <input class="input is-sucess" type="text" name="weight_3" value="">
+                    <input class="input is-sucess" type="text" name="weight_3" value="<?php echo $weight_3;?>">
                 </div>
                 <div class="column is-narrow">kg</div>
                 <div class="column is-narrow">
-                    <input class="input is-sucess" type="text" name="count_3" value="">
+                    <input class="input is-sucess" type="text" name="count_3" value="<?php echo $count_3;?>">
                 </div>
                 <div class="column is-narrow">回</div>
             </div>
