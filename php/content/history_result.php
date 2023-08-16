@@ -31,11 +31,11 @@
         $tblName = "history_tbl";
         $param = 'date ="'.$date.'"';
         $tblNameJoin = "item_tbl";
-        $on = "history_tbl.item_idx = item_tbl.idx";
+        $on = "history_tbl.item_idx = item_tbl.item_idx";
         $ret = readTbl($tblName, $param, NULL, $tblNameJoin, $on);
         if ($ret != FALSE) {
             foreach ($ret as $value) {
-                $strTbl .= sprintf($format, $value['item_idx'], $value['name'], 
+                $strTbl .= sprintf($format, $value['history_idx'], $value['name'], 
                                             $value['weight_1'], $value['count_1'],
                                             $value['weight_2'], $value['count_2'], 
                                             $value['weight_3'], $value['count_3'],);
@@ -79,7 +79,7 @@
 
         function clicked(e) {
             let date = document.getElementById("date").textContent;
-            location = "branch.php?history_edit_type=detail&item_idx="+e.target.id+"&date="+date;
+            location = "branch.php?history_edit_type=detail&history_idx="+e.target.id;
         }
     </script>
 

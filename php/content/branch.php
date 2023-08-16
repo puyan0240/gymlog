@@ -22,11 +22,11 @@ if (isset($_GET['history_edit_type'])) {
     if ($type == 'result')
         header('Location:history_result.php?date='.$_GET['date']);
     elseif ($type == 'detail')
-        header('Location:history_detail.php?date='.$_GET['date'].'&item_idx='.$_GET['item_idx']);
+        header('Location:history_detail.php?history_idx='.$_GET['history_idx']);
     elseif ($type == "edit")
-        header('Location:history_edit.php?idx='.$_GET['idx']);
+        header('Location:history_edit.php?history_idx='.$_GET['history_idx']);
     else if ($type == "clr")
-        header('Location:history_del_confirm.php?idx='.$_GET['idx']);
+        header('Location:history_del_confirm.php?history_idx='.$_GET['history_idx']);
     exit();
 }
 

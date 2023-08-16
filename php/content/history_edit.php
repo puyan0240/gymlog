@@ -2,30 +2,30 @@
     // Header部分共通
     require_once(dirname(__FILE__).'/./header/header.php');
 
-    var_dump($_GET);
-    $idx = $_GET['idx'];
+    
+    $history_idx = $_GET['history_idx'];
 
     //DB TABLEから読み出し
     {
         $weight_1 = $weight_2 = $weight_3 = "";
         $count_1 = $count_2 = $count_3 = "";
+    
         $tblName = "history_tbl";
-        $param = 'idx ='.$idx;
-        //$tblNameJoin = "item_tbl";
-        //$on = "history_tbl.item_idx = item_tbl.idx";
-        //$ret = readTbl($tblName, $param, NULL, $tblNameJoin, $on);
-        $ret = readTbl($tblName, $param, NULL, NULL, NULL);
-        var_dump($ret);
+        $param = 'history_idx ='.$history_idx;
+        $tblNameJoin = "item_tbl";
+        $on = "history_tbl.item_idx = item_tbl.item_idx";
+        $ret = readTbl($tblName, $param, NULL, $tblNameJoin, $on);
         if ($ret != FALSE) {
             foreach ($ret as $value) {
-                $idx      = $value['idx'];
-                $name     = $value['name'];
-                $weight_1 = $value['weight_1'];
-                $count_1  = $value['count_1'];
-                $weight_2 = $value['weight_2'];
-                $count_2  = $value['count_2'];
-                $weight_3 = $value['weight_3'];
-                $count_3  = $value['count_3'];
+                $history_idx = $value['history_idx'];
+                $date        = $value['date'];
+                $name        = $value['name'];
+                $weight_1    = $value['weight_1'];
+                $count_1     = $value['count_1'];
+                $weight_2    = $value['weight_2'];
+                $count_2     = $value['count_2'];
+                $weight_3    = $value['weight_3'];
+                $count_3     = $value['count_3'];
                 break;
             }
         }
@@ -43,9 +43,9 @@
         $ret = readTbl($tblName, NULL, NULL, NULL, NULL);
         if ($ret != FALSE) {
             foreach ($ret as $value) {
-                $idx  = $value['idx'];
-                $name = $value['name'];
-                $strSelectItem .= sprintf($format, $idx, $name);
+                $item_idx = $value['item_idx'];
+                $name     = $value['name'];
+                $strSelectItem .= sprintf($format, $item_idx, $name);
             }
         }
     }
@@ -62,7 +62,7 @@
             <div class="field">
                 <label class="label">日付</label>
                 <div class="control">
-                    <input class="input is-sucess" type="text" name="date" required value="<?php echo date('Y-m-d'); ?>">
+                    <input class="input is-sucess" type="text" name="date" required value="<?php echo $date; ?>">
                 </div>
             </div>
 
