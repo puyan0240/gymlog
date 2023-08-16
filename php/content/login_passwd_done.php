@@ -31,7 +31,7 @@
         foreach ($ret as $value) {
             if (password_verify($passwd, $value['passwd'])) { //パスワードは暗号化しているので
                 $errFlag = false;
-                $idx = $value['idx'];
+                $account_idx = $value['account_idx'];
             }
             break;
         }   
@@ -59,7 +59,7 @@
         $elementKeyValue = [];
         $elementKeyValue['passwd'] = $passwd_hash;
         $paramKeyValue = [];
-        $paramKeyValue['idx'] = $idx;
+        $paramKeyValue['account_idx'] = $account_idx;
 
         if (updateTbl($tblName, $elementKeyValue, $paramKeyValue) == TRUE) {
             $result = "パスワードを変更しました";
