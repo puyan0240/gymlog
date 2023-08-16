@@ -4,15 +4,14 @@
 
    
     $user = $admin = $manager = "";
-    $idx = $_GET['idx'];
+    $item_idx = $_GET['item_idx'];
 
     //DB TABLEから読み出し
     $tblName = "item_tbl";
-    $param = 'idx ='.$idx;
+    $param = 'item_idx ='.$item_idx;
     $ret = readTbl($tblName, $param, NULL, NULL, NULL);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
-            $idx  = $value['idx'];
             $name = $value['name'];
             $note = $value['note'];
         }
@@ -31,7 +30,7 @@
 
     <div class="block ml-6 mr-6">
         <form action="item_edit_confirm.php" method="post">
-            <input type="hidden" name="idx" value="<?php echo $idx; ?>">
+            <input type="hidden" name="item_idx" value="<?php echo $item_idx; ?>">
 
             <div class="field">
                 <label class="label">マシン名</label>

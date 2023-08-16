@@ -23,7 +23,7 @@
             //HTML作成
             $count = 1;
             foreach ($ret as $value) {
-                $strTbl .= sprintf($format, (int)$value['idx'], $count, $value['name'], $value['note']);
+                $strTbl .= sprintf($format, (int)$value['item_idx'], $count, $value['name'], $value['note']);
                 $count += 1;
             }
         }
@@ -67,7 +67,7 @@
         }
 
         function clicked(e) {
-            location = "item_detail.php?idx="+e.target.id;
+            location = "item_detail.php?item_idx="+e.target.id;
         }
     </script>
 

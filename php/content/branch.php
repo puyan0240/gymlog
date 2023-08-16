@@ -35,9 +35,9 @@ if (isset($_GET['item_edit_type'])) {
     $edit_type = $_GET['item_edit_type'];
 
     if ($edit_type == "edit")
-        header('Location:item_edit.php?idx='.$_GET['idx']);
+        header('Location:item_edit.php?item_idx='.$_GET['item_idx']);
     else if ($edit_type == "clr")
-        header('Location:item_del_confirm.php?idx='.$_GET['idx']);
+        header('Location:item_del_confirm.php?item_idx='.$_GET['item_idx']);
     exit();
 }
 

@@ -11,7 +11,7 @@
     //DB TABLEの要素名リスト
     $elementKeyName = ['name','note'];
     $elementKeyValue = [];
-    $paramKeyName = ['idx'];
+    $paramKeyName = ['item_idx'];
     $paramKeyValue = [];
 
     //DB TABLEの 要素名:値 になるよう連想配列を作成

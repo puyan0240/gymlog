@@ -4,15 +4,14 @@
 
    
     $name = $note = "";
-    $idx = $_GET['idx'];
+    $item_idx = $_GET['item_idx'];
 
     //DB TABLEから読み出し
     $tblName = "item_tbl";
-    $param = 'idx ='.$idx;
+    $param = 'item_idx ='.$item_idx;
     $ret = readTbl($tblName, $param, NULL, NULL, NULL);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
-            $idx  = $value['idx'];
             $name = $value['name'];
             $note = $value['note'];
         }
@@ -42,10 +41,10 @@
     </div>
 
     <div class="block ml-6">
-        <a href="branch.php?item_edit_type=edit&idx=<?php echo $idx;?>">
+        <a href="branch.php?item_edit_type=edit&item_idx=<?php echo $item_idx;?>">
             <span class="button has-background-grey-lighter">編集</span>
         </a>
-        <a href="branch.php?item_edit_type=clr&idx=<?php echo $idx;?>">
+        <a href="branch.php?item_edit_type=clr&item_idx=<?php echo $item_idx;?>">
             <span class="button has-text-light has-background-danger ml-5">削除</span>
         </a> 
     </div>

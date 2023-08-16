@@ -6,9 +6,9 @@
     require_once(dirname(__FILE__).'/./common/Encode.php');
 
 
-    $idx  = e($_POST['idx']);
-    $name = e($_POST['name']);
-    $note = e($_POST['note']);
+    $item_idx = e($_POST['item_idx']);
+    $name     = e($_POST['name']);
+    $note     = e($_POST['note']);
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
 
     <div class="block ml-6">
         <form action="item_edit_done.php" method="POST">
-            <input type="hidden" name="idx" value="<?php echo $idx; ?>">
+            <input type="hidden" name="item_idx" value="<?php echo $item_idx; ?>">
             <input type="hidden" name="name" value="<?php echo $name; ?>">
             <input type="hidden" name="note" value="<?php echo $note;?>">
 
