@@ -5,10 +5,10 @@
     //e()用
     require_once(dirname(__FILE__).'/./common/Encode.php');
 
-
-    $idx  = e($_POST['idx']);
-    $user = e($_POST['user']);
-    $auth = e($_POST['auth']);
+    
+    $account_idx = e($_POST['account_idx']);
+    $user        = e($_POST['user']);
+    $auth        = e($_POST['auth']);
  
     $reason = "";
     if (mb_strlen($user) == 0)
@@ -49,7 +49,7 @@
     </div>
 
     <form action="account_edit_done.php" method="POST">
-        <input type="hidden" name="idx" value="<?php echo $idx; ?>">
+        <input type="hidden" name="account_idx" value="<?php echo $account_idx; ?>">
         <input type="hidden" name="user" value="<?php echo $user; ?>">
         <input type="hidden" name="auth" value="<?php echo $auth;?>">
 

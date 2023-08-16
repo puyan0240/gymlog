@@ -2,14 +2,14 @@
     // Header部分共通
     require_once(dirname(__FILE__).'/./header/header.php');
 
-    $idx = $_POST['idx'];
+    $account_idx = $_POST['account_idx'];
     $result = "パスワードを初期化できませんでした。";
     $passwd_hash = "";
 
 
     //DB検索:ユーザー名を取得する
     $tblName = "account_tbl";
-    $where = "idx='".$_POST['idx']."'";
+    $where = "account_idx='".$_POST['account_idx']."'";
     $ret = readTbl($tblName, $where, NULL, NULL, NULL);
     if ($ret != FALSE) {
         //ユーザー認証&記録
@@ -27,7 +27,7 @@
         $elementKeyValue = [];
         $elementKeyValue['passwd'] = $passwd_hash;
         $paramKeyValue = [];
-        $paramKeyValue['idx'] = $idx;
+        $paramKeyValue['account_idx'] = $account_idx;
 
         if (updateTbl($tblName, $elementKeyValue, $paramKeyValue) == TRUE) {
             $result = "パスワードを初期化しました。";

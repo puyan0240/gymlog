@@ -23,7 +23,7 @@
             //HTML作成
             $count = 1;
             foreach ($ret as $value) {
-                $strTbl .= sprintf($format, (int)$value['idx'], $count, $value['user'], 
+                $strTbl .= sprintf($format, (int)$value['account_idx'], $count, $value['user'], 
                                             $value['auth']==0 ? "一般":"管理者");
                 $count += 1;
             }
@@ -68,7 +68,7 @@
         }
 
         function clicked(e) {
-            location = "account_detail.php?idx="+e.target.id;
+            location = "account_detail.php?account_idx="+e.target.id;
         }
     </script>
 

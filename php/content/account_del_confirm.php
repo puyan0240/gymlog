@@ -4,15 +4,14 @@
     
 
     $user = $passwd = $admin = $manager = "";
-    $idx = $_GET['idx'];
+    $account_idx = $_GET['account_idx'];
 
     //DB TABLEから読み出し
     $tblName = "account_tbl";
-    $param = 'idx ='.$idx;
+    $param = 'account_idx ='.$account_idx;
     $ret = readTbl($tblName, $param, NULL, NULL, NULL);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
-            $idx  = $value['idx'];
             $user = $value['user'];
             $auth = $value['auth'];
         }
@@ -41,7 +40,7 @@
 
     <div class="block ml-6 mr-6">
         <form action="account_del_done.php" method="post">
-            <input type="hidden" name="idx" value="<?php echo $idx;?>">
+            <input type="hidden" name="account_idx" value="<?php echo $account_idx;?>">
 
             <div class="field">
                 <p>delete と入力してください</p>

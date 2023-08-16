@@ -46,11 +46,11 @@ if (isset($_GET['account_edit_type'])) {
     $type = $_GET['account_edit_type'];
 
     if ($type == "edit")
-        header('Location:account_edit.php?idx='.$_GET['idx']);
+        header('Location:account_edit.php?account_idx='.$_GET['account_idx']);
     else if ($type == "clr")
-        header('Location:account_del_confirm.php?idx='.$_GET['idx']);
+        header('Location:account_del_confirm.php?account_idx='.$_GET['account_idx']);
     else if ($type == "passwd_clr")
-        header('Location:account_passwd_clr_confirm.php?idx='.$_GET['idx']);
+        header('Location:account_passwd_clr_confirm.php?account_idx='.$_GET['account_idx']);
 
     exit();
 }

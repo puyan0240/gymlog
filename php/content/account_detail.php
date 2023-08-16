@@ -4,15 +4,14 @@
 
    
     $user = $passwd = $admin = $manager = "";
-    $idx = $_GET['idx'];
+    $account_idx = $_GET['account_idx'];
 
     //DB TABLEから読み出し
     $tblName = "account_tbl";
-    $param = 'idx ='.$idx;
+    $param = 'account_idx ='.$account_idx;
     $ret = readTbl($tblName, $param, NULL, NULL, NULL);
     if ($ret != FALSE) {
         foreach ($ret as $value) {
-            $idx  = $value['idx'];
             $user = $value['user'];
             $auth = $value['auth'];
         }
@@ -49,13 +48,13 @@
     </div>
 
     <div class="block ml-6">
-        <a href="branch.php?account_edit_type=edit&idx=<?php echo $idx;?>">
+        <a href="branch.php?account_edit_type=edit&account_idx=<?php echo $account_idx;?>">
             <span class="button has-background-grey-lighter">編集</span>
         </a>
-        <a href="branch.php?account_edit_type=passwd_clr&idx=<?php echo $idx;?>">
+        <a href="branch.php?account_edit_type=passwd_clr&account_idx=<?php echo $account_idx;?>">
             <span class="button has-text-light has-background-danger ml-5">パスワード初期化</span>
         </a> 
-        <a href="branch.php?account_edit_type=clr&idx=<?php echo $idx;?>">
+        <a href="branch.php?account_edit_type=clr&account_idx=<?php echo $account_idx;?>">
             <span class="button has-text-light has-background-danger ml-5">アカウント削除</span>
         </a> 
     </div>
