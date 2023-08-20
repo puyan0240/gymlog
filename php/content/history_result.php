@@ -29,7 +29,7 @@
     
         //DB TABLEから読み出し
         $tblName = "history_tbl";
-        $param = 'date ="'.$date.'"';
+        $param = 'date ="'.$date.'"'."AND account_idx = ".$_SESSION['account_idx']; //ログイン中のユーザーのみ
         $tblNameJoin = "item_tbl";
         $on = "history_tbl.item_idx = item_tbl.item_idx";
         $ret = readTbl($tblName, $param, NULL, $tblNameJoin, $on);

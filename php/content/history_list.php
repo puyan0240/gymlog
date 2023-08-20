@@ -40,7 +40,7 @@
         $last_date = "";
 
         //DB TABLEから読み出し
-        $where = "date like '%".$selectedYear."%'";
+        $where = "date like '%".$selectedYear."%'"."AND account_idx = ".$_SESSION['account_idx']; //ログイン中のユーザーのみ
         $tblName = "history_tbl";
         $ret = readTbl($tblName, $where, 'ORDER BY date DESC', NULL, NULL);
         if ($ret != FALSE) {
