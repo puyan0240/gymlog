@@ -5,6 +5,7 @@
     //e()用
     require_once(dirname(__FILE__).'/./common/Encode.php');
 
+    $history_idx = e($_POST['history_idx']);
     $date     = e($_POST['date']);
     $item_idx = e($_POST['item_idx']);
     $weight_1 = e($_POST['weight_1']);
@@ -78,6 +79,7 @@
 
     <div class="block ml-6">
         <form action="history_edit_done.php" method="POST">
+            <input type="hidden" name="history_idx" value="<?php echo $history_idx; ?>">
             <input type="hidden" name="date" value="<?php echo $date; ?>">
             <input type="hidden" name="account_idx" value="<?php echo $_SESSION['account_idx']; ?>">
             <input type="hidden" name="item_idx" value="<?php echo $item_idx; ?>">

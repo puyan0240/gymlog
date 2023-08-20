@@ -66,6 +66,8 @@
     <br>
     <div class="block ml-6 mr-6">
         <form action="history_edit_confirm.php" method="POST">
+            <input type="hidden" name="history_idx" value="<?php echo $history_idx; ?>">
+
             <div class="field">
                 <label class="label">日付</label>
                 <div class="control">
